@@ -1,0 +1,55 @@
+{
+  "name": "m0d-desktop",
+  "version": "0.2.4",
+  "private": true,
+  "description": "M0D desktop client for Windows 10/11",
+  "main": "main.js",
+  "author": "Mask0FDark",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis --x64"
+  },
+  "devDependencies": {
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "site.m0d.messenger.desktop",
+    "productName": "M0D",
+    "asar": true,
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "build/**/*"
+    ],
+    "protocols": [
+      {
+        "name": "M0D",
+        "schemes": ["m0d"]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.svg",
+      "artifactName": "M0D-Setup-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "M0D",
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}
