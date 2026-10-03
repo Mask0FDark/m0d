@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">M0D</string>
+    <string name="title_activity_main">M0D</string>
+    <string name="package_name">site.m0d.messenger</string>
+    <string name="custom_url_scheme">site.m0d.messenger</string>
+</resources>

@@ -1,4 +1,5 @@
-const { app, BrowserWindow, desktopCapturer, ipcMain, Notification, session, shell } = require("electron");
+const { app, BrowserWindow, desktopCapturer, dialog, ipcMain, Notification, session, shell } = require("electron");
+const { autoUpdater } = require("electron-updater");
 const path = require("path");
 
 const APP_URL = process.env.M0D_DESKTOP_URL || "https://m0d-dev.mask-0f-darkness.ru";
@@ -90,6 +91,57 @@ function configurePermissions() {
   }, { useSystemPicker: true });
 }
 
+
+function sendUpdateStatus(payload) {
+  if (!mainWindow || mainWindow.isDestroyed()) return;
+  mainWindow.webContents.send("m0d:update-status", payload);
+}
+
+function configureAutoUpdates() {
+  if (!app.isPackaged) return;
+
+  autoUpdater.autoDownload = true;
+  autoUpdater.autoInstallOnAppQuit = true;
+
+  autoUpdater.on("checking-for-update", () => sendUpdateStatus({ state: "checking" }));
+  autoUpdater.on("update-available", info => {
+    sendUpdateStatus({ state: "available", version: info.version });
+  });
+  autoUpdater.on("update-not-available", info => {
+    sendUpdateStatus({ state: "current", version: info?.version || app.getVersion() });
+  });
+  autoUpdater.on("download-progress", progress => {
+    sendUpdateStatus({
+      state: "downloading",
+      percent: Math.round(progress.percent || 0),
+      version: progress.version || null
+    });
+  });
+  autoUpdater.on("error", error => {
+    sendUpdateStatus({ state: "error", message: String(error?.message || error || "update_failed") });
+  });
+  autoUpdater.on("update-downloaded", async info => {
+    sendUpdateStatus({ state: "ready", version: info.version });
+    const answer = await dialog.showMessageBox(mainWindow, {
+      type: "info",
+      title: "Обновление M0D готово",
+      message: `M0D ${info.version} уже загружен.`,
+      detail: "Перезапустить приложение и установить обновление сейчас?",
+      buttons: ["Перезапустить и обновить", "Позже"],
+      defaultId: 0,
+      cancelId: 1,
+      noLink: true
+    });
+    if (answer.response === 0) {
+      setImmediate(() => autoUpdater.quitAndInstall(false, true));
+    }
+  });
+
+  const check = () => autoUpdater.checkForUpdates().catch(() => {});
+  setTimeout(check, 5000);
+  setInterval(check, 4 * 60 * 60 * 1000).unref();
+}
+
 function restoreWindow() {
   if (!mainWindow || mainWindow.isDestroyed()) {
     mainWindow = createWindow();
@@ -120,6 +172,7 @@ if (!gotLock) {
       app.setAsDefaultProtocolClient("m0d");
     }
     mainWindow = createWindow();
+    configureAutoUpdates();
   });
 }
 
@@ -153,3 +206,19 @@ ipcMain.handle("m0d:app-info", () => ({
   platform: process.platform,
   appUrl: APP_URL
 }));
+
+ipcMain.handle("m0d:update-check", async () => {
+  if (!app.isPackaged) return { ok: false, reason: "development" };
+  try {
+    const result = await autoUpdater.checkForUpdates();
+    return { ok: true, version: result?.updateInfo?.version || null };
+  } catch (error) {
+    return { ok: false, reason: String(error?.message || error || "update_failed") };
+  }
+});
+
+ipcMain.handle("m0d:update-install", () => {
+  if (!app.isPackaged) return false;
+  setImmediate(() => autoUpdater.quitAndInstall(false, true));
+  return true;
+});

@@ -9,7 +9,7 @@ on:
       - ".github/workflows/windows.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   windows:
@@ -33,10 +33,27 @@ jobs:
           CSC_IDENTITY_AUTO_DISCOVERY: "false"
         run: npm run dist:win
 
-      - name: Upload
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: M0D-Windows-x64
-          path: desktop/dist/*.exe
+          path: |
+            desktop/dist/*.exe
+            desktop/dist/latest*.yml
           if-no-files-found: error
           retention-days: 14
+
+      - name: Publish update
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $pkg = Get-Content desktop/package.json -Raw | ConvertFrom-Json
+          $tag = "v$($pkg.version)"
+          gh release view $tag --repo $env:GITHUB_REPOSITORY *> $null
+          if ($LASTEXITCODE -ne 0) {
+            gh release create $tag --repo $env:GITHUB_REPOSITORY --title "M0D $($pkg.version)" --notes "Автоматическая сборка M0D $($pkg.version)."
+          }
+          Get-ChildItem desktop/dist -File | Where-Object { $_.Name -match '\.(exe|yml)$' } | ForEach-Object {
+            gh release upload $tag $_.FullName --repo $env:GITHUB_REPOSITORY --clobber
+          }

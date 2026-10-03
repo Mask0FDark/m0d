@@ -1,6 +1,6 @@
 {
   "name": "m0d-desktop",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "private": true,
   "description": "M0D desktop client for Windows 10/11",
   "main": "main.js",
@@ -30,14 +30,18 @@
     "protocols": [
       {
         "name": "M0D",
-        "schemes": ["m0d"]
+        "schemes": [
+          "m0d"
+        ]
       }
     ],
     "win": {
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "build/icon.svg",
@@ -50,6 +54,17 @@
       "createStartMenuShortcut": true,
       "shortcutName": "M0D",
       "deleteAppDataOnUninstall": false
-    }
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Mask0FDark",
+        "repo": "m0d",
+        "releaseType": "release"
+      }
+    ]
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.9"
   }
 }
