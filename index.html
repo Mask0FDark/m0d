@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0a0b10">
-  <meta name="description" content="M0D — Message Over Distance. Мессенджер для общения, звонков, групп и каналов.">
+  <meta name="theme-color" content="#080a10">
+  <meta name="description" content="M0D — Message Over Distance. Чаты, группы, каналы, голосовые и видеозвонки на Windows, Android, iPhone и в браузере.">
   <title>M0D — Message Over Distance</title>
   <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
@@ -13,143 +13,125 @@
   <header class="site-header">
     <a class="brand" href="#top" aria-label="M0D">
       <img src="./assets/icon.svg" alt="">
-      <span>M0D</span>
+      <div><strong>M0D</strong><span>Message Over Distance</span></div>
     </a>
     <nav>
       <a href="#features" data-i18n="navFeatures">Возможности</a>
       <a href="#calls" data-i18n="navCalls">Звонки</a>
-      <a href="#download" data-i18n="navDownload">Скачать</a>
-      <a href="https://github.com/Mask0FDark/m0d" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="#download" data-i18n="navDownload">Приложения</a>
     </nav>
     <div class="header-actions">
-      <button class="lang-switch" id="langSwitch" type="button" aria-label="Switch language">EN</button>
-      <a class="header-cta" href="#download" data-i18n="download">Скачать</a>
+      <button class="lang-switch" id="langSwitch" type="button">EN</button>
+      <a class="ghost-button" href="https://m0d-dev.mask-0f-darkness.ru/" target="_blank" rel="noreferrer" data-i18n="openWeb">Открыть веб-версию</a>
+      <a class="primary small" href="#download" data-i18n="download">Скачать</a>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="hero-copy">
-        <div class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">M0D · Message Over Distance</span></div>
-        <h1 data-i18n="heroTitle">Общение без лишнего шума</h1>
-        <p data-i18n="heroText">Личные чаты, группы, каналы и звонки в одном лёгком мессенджере.</p>
+        <div class="eyebrow"><span class="status-dot"></span><span data-i18n="eyebrow">M0D · активная разработка</span></div>
+        <h1 data-i18n="heroTitle">Мессенджер, который остаётся простым.</h1>
+        <p class="hero-lead" data-i18n="heroText">Личные чаты, группы, каналы, файлы и звонки. Один интерфейс на компьютере, телефоне и в браузере.</p>
         <div class="hero-actions">
-          <a class="primary" href="#download" data-i18n="downloadApp">Скачать приложение</a>
-          <a class="secondary" href="#features" data-i18n="learnMore">Узнать больше</a>
+          <a class="primary" href="#download" data-i18n="downloadApp">Скачать M0D</a>
+          <a class="secondary" href="https://m0d-dev.mask-0f-darkness.ru/" target="_blank" rel="noreferrer" data-i18n="openWeb">Открыть веб-версию</a>
         </div>
-        <div class="hero-note" data-i18n="heroNote">Сейчас M0D находится в активной разработке.</div>
+        <div class="hero-meta">
+          <span><b>Windows</b> 10/11</span>
+          <span><b>Android</b> 8+</span>
+          <span><b>iPhone</b> PWA</span>
+          <span><b>Web</b> Chrome / Edge / Safari</span>
+        </div>
       </div>
 
-      <div class="hero-visual" aria-label="M0D messenger preview">
-        <div class="glow glow-a"></div>
-        <div class="glow glow-b"></div>
-        <div class="phone">
-          <div class="phone-top">
-            <div class="phone-avatar">M</div>
-            <div><strong data-i18n="mockName">M0D</strong><span data-i18n="mockOnline">в сети</span></div>
-            <div class="phone-icons">⌕ ·</div>
+      <div class="hero-product" aria-label="Предпросмотр M0D">
+        <div class="orb one"></div><div class="orb two"></div>
+        <div class="desktop-shell">
+          <div class="window-bar"><span></span><span></span><span></span><b>M0D</b></div>
+          <div class="app-preview">
+            <aside>
+              <div class="preview-search">Поиск</div>
+              <div class="chat-row active"><i>M</i><div><b>Макс</b><span>Созвонимся?</span></div><time>21:04</time></div>
+              <div class="chat-row"><i>A</i><div><b>AnotherWorld</b><span>Новый билд готов</span></div></div>
+              <div class="chat-row"><i>V</i><div><b>VGA World</b><span>Видео отправлено</span></div></div>
+            </aside>
+            <section>
+              <header><div class="avatar">M</div><div><b>Макс</b><span>в сети</span></div><em>☎　◉</em></header>
+              <div class="preview-messages">
+                <div class="message in">Тест звонка с ПК?</div>
+                <div class="message out">Да. Микрофон и наушники уже выбрал ✓✓</div>
+                <div class="call-card"><strong>◉ Голосовой звонок</strong><span>Устройства можно менять во время разговора</span></div>
+              </div>
+              <div class="preview-composer">Сообщение <b>➤</b></div>
+            </section>
           </div>
-          <div class="chat-bg">
-            <div class="date-pill" data-i18n="mockToday">Сегодня</div>
-            <div class="bubble in" data-i18n="mockMsg1">Созвонимся вечером?</div>
-            <div class="bubble out" data-i18n="mockMsg2">Да, напиши когда будешь свободна <small>✓✓</small></div>
-            <div class="bubble in media">
-              <div class="media-card"><span>▶</span></div>
-              <em data-i18n="mockVideo">Видео · 0:18</em>
-            </div>
-            <div class="bubble out" data-i18n="mockMsg3">Уже здесь 👋 <small>✓✓</small></div>
-          </div>
-          <div class="composer"><span>＋</span><span class="composer-placeholder" data-i18n="mockPlaceholder">Сообщение</span><span>◉</span></div>
         </div>
+        <div class="floating-chip chip-a">WebRTC · TURN fallback</div>
+        <div class="floating-chip chip-b">Windows app</div>
       </div>
     </section>
 
     <section class="section" id="features">
       <div class="section-heading">
-        <span data-i18n="featuresKicker">Возможности</span>
-        <h2 data-i18n="featuresTitle">Всё нужное для обычного общения</h2>
+        <span data-i18n="featuresKicker">Что внутри</span>
+        <h2 data-i18n="featuresTitle">Не только переписка</h2>
+        <p data-i18n="featuresText">M0D закрывает обычные сценарии мессенджера без десятка отдельных приложений.</p>
       </div>
       <div class="feature-grid">
-        <article class="feature-card">
-          <div class="feature-icon">✦</div>
-          <h3 data-i18n="f1Title">Чаты без перегруза</h3>
-          <p data-i18n="f1Text">Личные диалоги, группы, каналы, ответы, реакции, закрепы и медиа.</p>
-        </article>
-        <article class="feature-card" id="calls">
-          <div class="feature-icon">◉</div>
-          <h3 data-i18n="f2Title">Голос и видео</h3>
-          <p data-i18n="f2Text">WebRTC-звонки с P2P-соединением и резервным TURN-маршрутом.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon">⌁</div>
-          <h3 data-i18n="f3Title">Между устройствами</h3>
-          <p data-i18n="f3Text">Web/PWA и Android с единым интерфейсом и историей общения.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon">◇</div>
-          <h3 data-i18n="f4Title">Приватность</h3>
-          <p data-i18n="f4Text">Email не используется как публичный идентификатор для поиска людей.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="split-section">
-      <div class="split-copy">
-        <span class="section-kicker" data-i18n="designKicker">Интерфейс</span>
-        <h2 data-i18n="designTitle">Привычно с первого экрана</h2>
-        <p data-i18n="designText">M0D делает ставку на плотный, спокойный интерфейс: чаты всегда на виду, сообщения читаются легко, а звонки не мешают переписке.</p>
-        <div class="mini-points">
-          <span data-i18n="point1">Быстрый поиск</span>
-          <span data-i18n="point2">Компактные диалоги</span>
-          <span data-i18n="point3">Тёмная тема</span>
-        </div>
-      </div>
-      <div class="desktop-preview">
-        <div class="preview-sidebar">
-          <div class="preview-search"></div>
-          <div class="preview-row active"><i></i><div><b></b><span></span></div></div>
-          <div class="preview-row"><i></i><div><b></b><span></span></div></div>
-          <div class="preview-row"><i></i><div><b></b><span></span></div></div>
-          <div class="preview-row"><i></i><div><b></b><span></span></div></div>
-        </div>
-        <div class="preview-chat">
-          <div class="preview-head"></div>
-          <div class="preview-message one"></div>
-          <div class="preview-message two"></div>
-          <div class="preview-message three"></div>
-          <div class="preview-compose"></div>
-        </div>
+        <article class="feature-card"><span class="feature-no">01</span><h3 data-i18n="f1Title">Чаты и каналы</h3><p data-i18n="f1Text">Личные диалоги, группы, каналы, комментарии, ответы, реакции, закрепы и медиа.</p></article>
+        <article class="feature-card" id="calls"><span class="feature-no">02</span><h3 data-i18n="f2Title">Звонки без привязки к одному устройству</h3><p data-i18n="f2Text">Голос, видео, демонстрация экрана на ПК и выбор микрофона, наушников или колонок прямо во время звонка.</p></article>
+        <article class="feature-card"><span class="feature-no">03</span><h3 data-i18n="f3Title">Продолжай на другом устройстве</h3><p data-i18n="f3Text">Windows, Android, Web и временный PWA-вариант для iPhone работают с одним аккаунтом.</p></article>
+        <article class="feature-card"><span class="feature-no">04</span><h3 data-i18n="f4Title">Приватные идентификаторы</h3><p data-i18n="f4Text">Email не используется для публичного поиска. Для добавления людей есть username и приглашения.</p></article>
       </div>
     </section>
 
     <section class="download-section" id="download">
-      <div>
-        <span class="section-kicker" data-i18n="downloadKicker">M0D на устройствах</span>
-        <h2 data-i18n="downloadTitle">Скачай и оставайся на связи</h2>
-        <p data-i18n="downloadText">Публичные сборки будут появляться в GitHub Releases по мере готовности.</p>
+      <div class="section-heading download-heading">
+        <span data-i18n="downloadKicker">M0D на твоих устройствах</span>
+        <h2 data-i18n="downloadTitle">Выбери платформу</h2>
+        <p data-i18n="downloadText">Windows и Android устанавливаются как приложения. На iPhone пока используй веб-версию как PWA — она добавляется на главный экран через Safari.</p>
       </div>
-      <div class="download-actions">
-        <a class="store-card" href="https://github.com/Mask0FDark/m0d/releases" target="_blank" rel="noreferrer">
-          <span class="store-icon">A</span>
-          <span><small data-i18n="androidSmall">Для Android</small><strong data-i18n="releases">GitHub Releases</strong></span>
-        </a>
-        <div class="store-card disabled">
-          <span class="store-icon">⌘</span>
-          <span><small data-i18n="desktopSmall">Для компьютера</small><strong data-i18n="comingSoon">Скоро</strong></span>
-        </div>
+
+      <div class="platform-grid">
+        <article class="platform-card recommended">
+          <div class="platform-top"><div class="platform-icon windows">⊞</div><span class="badge" data-i18n="recommended">Рекомендуется</span></div>
+          <h3>Windows</h3><p data-i18n="windowsText">Отдельное приложение для Windows 10/11. Звонки, демонстрация экрана и выбор аудиоустройств.</p>
+          <div class="platform-meta"><span>x64</span><span>Windows 10/11</span></div>
+          <a class="platform-button" href="https://github.com/Mask0FDark/m0d/releases/download/v0.2.5/M0D-Setup-0.2.5-x64.exe" data-i18n="downloadWindows">Скачать для Windows</a>
+        </article>
+
+        <article class="platform-card">
+          <div class="platform-top"><div class="platform-icon android">A</div><span class="badge neutral">APK</span></div>
+          <h3>Android</h3><p data-i18n="androidText">Нативная оболочка M0D с уведомлениями, звонками и мобильным интерфейсом.</p>
+          <div class="platform-meta"><span>APK</span><span>Android 8+</span></div>
+          <a class="platform-button secondary-button" href="https://github.com/Mask0FDark/m0d/releases/tag/v0.2.5" data-i18n="downloadAndroid">Скачать APK</a>
+        </article>
+
+        <article class="platform-card ios-card">
+          <div class="platform-top"><div class="platform-icon apple">●</div><span class="badge neutral" data-i18n="pwaBadge">Пока PWA</span></div>
+          <h3>iPhone</h3><p data-i18n="iosText">Отдельной сборки App Store пока нет. M0D можно установить на главный экран как веб-приложение.</p>
+          <ol class="ios-steps">
+            <li data-i18n="ios1">Открой M0D в Safari.</li>
+            <li data-i18n="ios2">Нажми «Поделиться».</li>
+            <li data-i18n="ios3">Выбери «На экран Домой».</li>
+          </ol>
+          <a class="platform-button secondary-button" href="https://m0d-dev.mask-0f-darkness.ru/" target="_blank" rel="noreferrer" data-i18n="openIphone">Открыть M0D на iPhone</a>
+        </article>
+      </div>
+
+      <div class="web-strip">
+        <div><strong data-i18n="webTitle">Ничего не хочешь устанавливать?</strong><span data-i18n="webText">Открой M0D прямо в браузере. Это тот же аккаунт и те же чаты.</span></div>
+        <a class="secondary" href="https://m0d-dev.mask-0f-darkness.ru/" target="_blank" rel="noreferrer" data-i18n="openWeb">Открыть веб-версию</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="brand footer-brand"><img src="./assets/icon.svg" alt=""><span>M0D</span></div>
-    <div class="footer-links">
-      <a href="https://github.com/Mask0FDark/m0d" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="https://github.com/Mask0FDark/m0d/issues" target="_blank" rel="noreferrer">Issues</a>
-    </div>
+    <div class="brand footer-brand"><img src="./assets/icon.svg" alt=""><div><strong>M0D</strong><span>Message Over Distance</span></div></div>
+    <div class="footer-links"><a href="https://github.com/Mask0FDark/m0d" target="_blank" rel="noreferrer">GitHub</a><a href="https://github.com/Mask0FDark/m0d/issues" target="_blank" rel="noreferrer">Issues</a></div>
     <span>© 2026 M0D</span>
   </footer>
-
   <script src="./site.js"></script>
 </body>
 </html>
