@@ -54,6 +54,6 @@ jobs:
           if ($LASTEXITCODE -ne 0) {
             gh release create $tag --repo $env:GITHUB_REPOSITORY --title "M0D $($pkg.version)" --notes "Автоматическая сборка M0D $($pkg.version)."
           }
-          Get-ChildItem desktop/dist -File | Where-Object { $_.Name -match '\.(exe|yml)$' } | ForEach-Object {
+          Get-ChildItem desktop/dist -File | Where-Object { $_.Extension -eq '.exe' -or $_.Name -like 'latest*.yml' } | ForEach-Object {
             gh release upload $tag $_.FullName --repo $env:GITHUB_REPOSITORY --clobber
           }
