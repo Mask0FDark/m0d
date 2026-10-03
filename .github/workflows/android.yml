@@ -34,7 +34,25 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.android/debug.keystore
-          key: m0d-android-debug-keystore-v1
+          key: m0d-android-debug-keystore-v2
+
+      - name: Ensure Android signing key
+        shell: bash
+        run: |
+          mkdir -p "$HOME/.android"
+          if [ ! -f "$HOME/.android/debug.keystore" ]; then
+            keytool -genkeypair -v \
+              -keystore "$HOME/.android/debug.keystore" \
+              -storepass android \
+              -alias androiddebugkey \
+              -keypass android \
+              -dname "CN=Android Debug,O=Android,C=US" \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -storetype JKS
+          fi
+          keytool -list -v -keystore "$HOME/.android/debug.keystore" -storepass android -alias androiddebugkey | grep -E "SHA256:|Alias name:"
 
       - name: Install Android SDK 36
         shell: bash
@@ -87,6 +105,8 @@ jobs:
           VERSION="$(node -p "require('./mobile/package.json').version")"
           TAG="v$VERSION"
           if ! gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --title "M0D $VERSION" --notes "Автоматическая сборка M0D $VERSION."
+            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --title "M0D $VERSION" --notes "Автоматическая сборка M0D $VERSION." --latest=false
+          else
+            gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --latest=false
           fi
           gh release upload "$TAG" "M0D-${VERSION}-android.apk" --repo "$GITHUB_REPOSITORY" --clobber

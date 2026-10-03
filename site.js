@@ -79,10 +79,10 @@ function applyDeviceRecommendation(){
 
 async function refreshLatestDownloads(){
  try{
-   const response=await fetch("https://api.github.com/repos/Mask0FDark/m0d/releases/latest",{headers:{"Accept":"application/vnd.github+json"}});
+   const response=await fetch("https://api.github.com/repos/Mask0FDark/m0d/releases?per_page=10",{headers:{"Accept":"application/vnd.github+json"}});
    if(!response.ok) throw new Error("release_fetch_failed");
-   const release=await response.json();
-   const assets=Array.isArray(release.assets)?release.assets:[];
+   const releases=await response.json();
+   const assets=(Array.isArray(releases)?releases:[]).flatMap(release=>Array.isArray(release.assets)?release.assets:[]);
    const windows=assets.find(asset=>/^M0D-Setup-.*-x64\.exe$/i.test(asset.name));
    const android=assets.find(asset=>/^M0D-.*-android\.apk$/i.test(asset.name));
    if(windows?.browser_download_url) downloadState.windows=windows.browser_download_url;
