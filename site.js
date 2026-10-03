@@ -10,8 +10,8 @@ f2Title:"Звонки без привязки к одному устройств
 f3Title:"Продолжай на другом устройстве",f3Text:"Windows, Android, Web и временный PWA-вариант для iPhone работают с одним аккаунтом.",
 downloadKicker:"M0D на твоих устройствах",downloadTitle:"Выбери платформу",
 downloadText:"Windows и Android устанавливаются как приложения. На iPhone пока используй веб-версию как PWA — она добавляется на главный экран через Safari.",
-recommended:"Рекомендуется",windowsText:"Отдельное приложение для Windows 10/11. Звонки, демонстрация экрана и выбор аудиоустройств.",
-downloadWindows:"Скачать для Windows",androidText:"Нативная оболочка M0D с уведомлениями, звонками и мобильным интерфейсом.",
+recommended:"Рекомендуется",windowsText:"Отдельное приложение для Windows 10/11. Звонки, демонстрация экрана, выбор аудиоустройств и автообновление внутри M0D.",
+downloadWindows:"Скачать для Windows",androidText:"M0D для Android с уведомлениями, звонками и встроенной проверкой обновлений.",
 downloadAndroid:"Скачать APK",pwaBadge:"Пока PWA",iosText:"Отдельной сборки App Store пока нет. M0D можно установить на главный экран как веб-приложение.",
 ios1:"Открой M0D в Safari.",ios2:"Нажми «Поделиться».",ios3:"Выбери «На экран Домой».",openIphone:"Открыть M0D на iPhone",
 webTitle:"Ничего не хочешь устанавливать?",webText:"Открой M0D прямо в браузере. Это тот же аккаунт и те же чаты."
@@ -27,8 +27,8 @@ f2Title:"Calls without being tied to one device",f2Text:"Voice, video, desktop s
 f3Title:"Continue on another device",f3Text:"Windows, Android, Web and the temporary iPhone PWA option use the same account.",
 downloadKicker:"M0D on your devices",downloadTitle:"Choose your platform",
 downloadText:"Windows and Android install as apps. On iPhone, use the web version as a PWA for now and add it to your Home Screen from Safari.",
-recommended:"Recommended",windowsText:"A dedicated Windows 10/11 app with calls, screen sharing and audio device selection.",
-downloadWindows:"Download for Windows",androidText:"M0D's Android wrapper with notifications, calls and the mobile interface.",
+recommended:"Recommended",windowsText:"A dedicated Windows 10/11 app with calls, screen sharing, audio device selection and in-app updates.",
+downloadWindows:"Download for Windows",androidText:"M0D for Android with notifications, calls and built-in update checks.",
 downloadAndroid:"Download APK",pwaBadge:"PWA for now",iosText:"There is no App Store build yet. You can install M0D to the Home Screen as a web app.",
 ios1:"Open M0D in Safari.",ios2:"Tap Share.",ios3:"Choose “Add to Home Screen”.",openIphone:"Open M0D on iPhone",
 webTitle:"Don't want to install anything?",webText:"Open M0D directly in your browser with the same account and chats."
