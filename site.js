@@ -44,7 +44,7 @@ document.getElementById("langSwitch").addEventListener("click",()=>{lang=lang===
 
 const downloadState={
  windows:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.6/M0D-Setup-0.2.6-x64.exe",
- android:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.6/M0D-0.2.6-android.apk"
+ android:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.7/M0D-0.2.7-android.apk"
 };
 
 function detectPlatform(){
@@ -58,33 +58,22 @@ function detectPlatform(){
 const detectedPlatform=detectPlatform();
 
 function applyDeviceRecommendation(){
- const box=document.getElementById("deviceRecommendation");
  const hero=document.getElementById("smartDownloadButton");
  const header=document.getElementById("smartHeaderDownload");
  document.querySelectorAll("[data-platform-card]").forEach(card=>{
    card.classList.toggle("device-match",card.dataset.platformCard===detectedPlatform);
  });
- if(!box||!hero||!header||detectedPlatform==="other"){
-   box?.classList.add("hidden");
-   return;
- }
+ if(!hero||!header||detectedPlatform==="other") return;
  const isAndroid=detectedPlatform==="android";
  const href=downloadState[detectedPlatform];
  hero.href=href;
  header.href=href;
- box.classList.remove("hidden");
  if(lang==="ru"){
-   hero.textContent=isAndroid?"Скачать APK для Android":"Скачать M0D для Windows";
+   hero.textContent=isAndroid?"Скачать APK":"Скачать EXE";
    header.textContent=isAndroid?"Скачать APK":"Скачать EXE";
-   box.innerHTML=isAndroid
-     ? "<strong>У тебя Android.</strong> Лучше скачать приложение M0D — звонки и уведомления будут удобнее, чем в браузере."
-     : "<strong>У тебя Windows.</strong> Лучше установить M0D для ПК — звонки, демонстрация экрана и уведомления работают удобнее, чем в браузере.";
  }else{
-   hero.textContent=isAndroid?"Download Android APK":"Download M0D for Windows";
+   hero.textContent=isAndroid?"Download APK":"Download EXE";
    header.textContent=isAndroid?"Download APK":"Download EXE";
-   box.innerHTML=isAndroid
-     ? "<strong>You're on Android.</strong> The M0D app is the better option for calls and notifications."
-     : "<strong>You're on Windows.</strong> The desktop M0D app is better for calls, screen sharing and notifications.";
  }
 }
 
