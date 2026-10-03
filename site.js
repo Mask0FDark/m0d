@@ -1,24 +1,24 @@
-﻿const copy={
+const copy={
 ru:{
-navFeatures:"Р’РѕР·РјРѕР¶РЅРѕСЃС‚Рё",navCalls:"Р—РІРѕРЅРєРё",navDownload:"РџСЂРёР»РѕР¶РµРЅРёСЏ",openWeb:"РћС‚РєСЂС‹С‚СЊ РІРµР±-РІРµСЂСЃРёСЋ",download:"РЎРєР°С‡Р°С‚СЊ",
-eyebrow:"M0D В· Р°РєС‚РёРІРЅР°СЏ СЂР°Р·СЂР°Р±РѕС‚РєР°",heroTitle:"РњРµСЃСЃРµРЅРґР¶РµСЂ, РєРѕС‚РѕСЂС‹Р№ РѕСЃС‚Р°С‘С‚СЃСЏ РїСЂРѕСЃС‚С‹Рј.",
-heroText:"Р›РёС‡РЅС‹Рµ С‡Р°С‚С‹, РіСЂСѓРїРїС‹, РєР°РЅР°Р»С‹, С„Р°Р№Р»С‹ Рё Р·РІРѕРЅРєРё. РћРґРёРЅ РёРЅС‚РµСЂС„РµР№СЃ РЅР° РєРѕРјРїСЊСЋС‚РµСЂРµ, С‚РµР»РµС„РѕРЅРµ Рё РІ Р±СЂР°СѓР·РµСЂРµ.",
-downloadApp:"РЎРєР°С‡Р°С‚СЊ M0D",featuresKicker:"Р§С‚Рѕ РІРЅСѓС‚СЂРё",featuresTitle:"РќРµ С‚РѕР»СЊРєРѕ РїРµСЂРµРїРёСЃРєР°",
-featuresText:"M0D Р·Р°РєСЂС‹РІР°РµС‚ РѕР±С‹С‡РЅС‹Рµ СЃС†РµРЅР°СЂРёРё РјРµСЃСЃРµРЅРґР¶РµСЂР° Р±РµР· РґРµСЃСЏС‚РєР° РѕС‚РґРµР»СЊРЅС‹С… РїСЂРёР»РѕР¶РµРЅРёР№.",
-f1Title:"Р§Р°С‚С‹ Рё РєР°РЅР°Р»С‹",f1Text:"Р›РёС‡РЅС‹Рµ РґРёР°Р»РѕРіРё, РіСЂСѓРїРїС‹, РєР°РЅР°Р»С‹, РєРѕРјРјРµРЅС‚Р°СЂРёРё, РѕС‚РІРµС‚С‹, СЂРµР°РєС†РёРё, Р·Р°РєСЂРµРїС‹ Рё РјРµРґРёР°.",
-f2Title:"Р—РІРѕРЅРєРё Р±РµР· РїСЂРёРІСЏР·РєРё Рє РѕРґРЅРѕРјСѓ СѓСЃС‚СЂРѕР№СЃС‚РІСѓ",f2Text:"Р“РѕР»РѕСЃ, РІРёРґРµРѕ, РґРµРјРѕРЅСЃС‚СЂР°С†РёСЏ СЌРєСЂР°РЅР° РЅР° РџРљ Рё РІС‹Р±РѕСЂ РјРёРєСЂРѕС„РѕРЅР°, РЅР°СѓС€РЅРёРєРѕРІ РёР»Рё РєРѕР»РѕРЅРѕРє РїСЂСЏРјРѕ РІРѕ РІСЂРµРјСЏ Р·РІРѕРЅРєР°.",
-f3Title:"РџСЂРѕРґРѕР»Р¶Р°Р№ РЅР° РґСЂСѓРіРѕРј СѓСЃС‚СЂРѕР№СЃС‚РІРµ",f3Text:"Windows, Android, Web Рё РІСЂРµРјРµРЅРЅС‹Р№ PWA-РІР°СЂРёР°РЅС‚ РґР»СЏ iPhone СЂР°Р±РѕС‚Р°СЋС‚ СЃ РѕРґРЅРёРј Р°РєРєР°СѓРЅС‚РѕРј.",
-downloadKicker:"M0D РЅР° С‚РІРѕРёС… СѓСЃС‚СЂРѕР№СЃС‚РІР°С…",downloadTitle:"Р’С‹Р±РµСЂРё РїР»Р°С‚С„РѕСЂРјСѓ",
-downloadText:"Windows Рё Android СѓСЃС‚Р°РЅР°РІР»РёРІР°СЋС‚СЃСЏ РєР°Рє РїСЂРёР»РѕР¶РµРЅРёСЏ. РќР° iPhone РїРѕРєР° РёСЃРїРѕР»СЊР·СѓР№ РІРµР±-РІРµСЂСЃРёСЋ РєР°Рє PWA вЂ” РѕРЅР° РґРѕР±Р°РІР»СЏРµС‚СЃСЏ РЅР° РіР»Р°РІРЅС‹Р№ СЌРєСЂР°РЅ С‡РµСЂРµР· Safari.",
-recommended:"Р РµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ",windowsText:"РћС‚РґРµР»СЊРЅРѕРµ РїСЂРёР»РѕР¶РµРЅРёРµ РґР»СЏ Windows 10/11. Р—РІРѕРЅРєРё, РґРµРјРѕРЅСЃС‚СЂР°С†РёСЏ СЌРєСЂР°РЅР°, РІС‹Р±РѕСЂ Р°СѓРґРёРѕСѓСЃС‚СЂРѕР№СЃС‚РІ Рё Р°РІС‚РѕРѕР±РЅРѕРІР»РµРЅРёРµ РІРЅСѓС‚СЂРё M0D.",
-downloadWindows:"РЎРєР°С‡Р°С‚СЊ РґР»СЏ Windows",androidText:"M0D РґР»СЏ Android СЃ СѓРІРµРґРѕРјР»РµРЅРёСЏРјРё, Р·РІРѕРЅРєР°РјРё Рё РјРѕР±РёР»СЊРЅС‹Рј РёРЅС‚РµСЂС„РµР№СЃРѕРј.",
-downloadAndroid:"РЎРєР°С‡Р°С‚СЊ APK",pwaBadge:"РџРѕРєР° PWA",iosText:"РћС‚РґРµР»СЊРЅРѕР№ СЃР±РѕСЂРєРё App Store РїРѕРєР° РЅРµС‚. M0D РјРѕР¶РЅРѕ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР° РіР»Р°РІРЅС‹Р№ СЌРєСЂР°РЅ РєР°Рє РІРµР±-РїСЂРёР»РѕР¶РµРЅРёРµ.",
-ios1:"РћС‚РєСЂРѕР№ M0D РІ Safari.",ios2:"РќР°Р¶РјРё В«РџРѕРґРµР»РёС‚СЊСЃСЏВ».",ios3:"Р’С‹Р±РµСЂРё В«РќР° СЌРєСЂР°РЅ Р”РѕРјРѕР№В».",openIphone:"РћС‚РєСЂС‹С‚СЊ M0D РЅР° iPhone",
-webTitle:"РќРёС‡РµРіРѕ РЅРµ С…РѕС‡РµС€СЊ СѓСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ?",webText:"РћС‚РєСЂРѕР№ M0D РїСЂСЏРјРѕ РІ Р±СЂР°СѓР·РµСЂРµ. Р­С‚Рѕ С‚РѕС‚ Р¶Рµ Р°РєРєР°СѓРЅС‚ Рё С‚Рµ Р¶Рµ С‡Р°С‚С‹."
+navFeatures:"Возможности",navCalls:"Звонки",navDownload:"Приложения",openWeb:"Открыть веб-версию",download:"Скачать",
+eyebrow:"M0D · активная разработка",heroTitle:"Мессенджер, который остаётся простым.",
+heroText:"Личные чаты, группы, каналы, файлы и звонки. Один интерфейс на компьютере, телефоне и в браузере.",
+downloadApp:"Скачать M0D",featuresKicker:"Что внутри",featuresTitle:"Не только переписка",
+featuresText:"M0D закрывает обычные сценарии мессенджера без десятка отдельных приложений.",
+f1Title:"Чаты и каналы",f1Text:"Личные диалоги, группы, каналы, комментарии, ответы, реакции, закрепы и медиа.",
+f2Title:"Звонки без привязки к одному устройству",f2Text:"Голос, видео, демонстрация экрана на ПК и выбор микрофона, наушников или колонок прямо во время звонка.",
+f3Title:"Продолжай на другом устройстве",f3Text:"Windows, Android, Web и временный PWA-вариант для iPhone работают с одним аккаунтом.",
+downloadKicker:"M0D на твоих устройствах",downloadTitle:"Выбери платформу",
+downloadText:"Windows и Android устанавливаются как приложения. На iPhone пока используй веб-версию как PWA — она добавляется на главный экран через Safari.",
+recommended:"Рекомендуется",windowsText:"Отдельное приложение для Windows 10/11. Звонки, демонстрация экрана, выбор аудиоустройств и автообновление внутри M0D.",
+downloadWindows:"Скачать для Windows",androidText:"M0D для Android с уведомлениями, звонками и мобильным интерфейсом.",
+downloadAndroid:"Скачать APK",pwaBadge:"Пока PWA",iosText:"Отдельной сборки App Store пока нет. M0D можно установить на главный экран как веб-приложение.",
+ios1:"Открой M0D в Safari.",ios2:"Нажми «Поделиться».",ios3:"Выбери «На экран Домой».",openIphone:"Открыть M0D на iPhone",
+webTitle:"Ничего не хочешь устанавливать?",webText:"Открой M0D прямо в браузере. Это тот же аккаунт и те же чаты."
 },
 en:{
 navFeatures:"Features",navCalls:"Calls",navDownload:"Apps",openWeb:"Open web app",download:"Download",
-eyebrow:"M0D В· active development",heroTitle:"A messenger that stays simple.",
+eyebrow:"M0D · active development",heroTitle:"A messenger that stays simple.",
 heroText:"Private chats, groups, channels, files and calls. One interface on desktop, phone and the web.",
 downloadApp:"Download M0D",featuresKicker:"What's inside",featuresTitle:"More than messaging",
 featuresText:"M0D covers everyday messenger workflows without forcing you into a stack of separate apps.",
@@ -30,7 +30,7 @@ downloadText:"Windows and Android install as apps. On iPhone, use the web versio
 recommended:"Recommended",windowsText:"A dedicated Windows 10/11 app with calls, screen sharing, audio device selection and in-app updates.",
 downloadWindows:"Download for Windows",androidText:"M0D for Android with notifications, calls and a mobile interface.",
 downloadAndroid:"Download APK",pwaBadge:"PWA for now",iosText:"There is no App Store build yet. You can install M0D to the Home Screen as a web app.",
-ios1:"Open M0D in Safari.",ios2:"Tap Share.",ios3:"Choose вЂњAdd to Home ScreenвЂќ.",openIphone:"Open M0D on iPhone",
+ios1:"Open M0D in Safari.",ios2:"Tap Share.",ios3:"Choose “Add to Home Screen”.",openIphone:"Open M0D on iPhone",
 webTitle:"Don't want to install anything?",webText:"Open M0D directly in your browser with the same account and chats."
 }};
 let lang=localStorage.getItem("m0d-site-lang")||(navigator.language?.toLowerCase().startsWith("ru")?"ru":"en");
@@ -40,7 +40,6 @@ function applyLanguage(){
  document.getElementById("langSwitch").textContent=lang==="ru"?"EN":"RU";
 }
 document.getElementById("langSwitch").addEventListener("click",()=>{lang=lang==="ru"?"en":"ru";localStorage.setItem("m0d-site-lang",lang);applyLanguage();applyDeviceRecommendation()});
-
 
 const downloadState={
  windows:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.6/M0D-Setup-0.2.6-x64.exe",
@@ -69,8 +68,8 @@ function applyDeviceRecommendation(){
  hero.href=href;
  header.href=href;
  if(lang==="ru"){
-   hero.textContent=isAndroid?"РЎРєР°С‡Р°С‚СЊ APK":"РЎРєР°С‡Р°С‚СЊ EXE";
-   header.textContent=isAndroid?"РЎРєР°С‡Р°С‚СЊ APK":"РЎРєР°С‡Р°С‚СЊ EXE";
+   hero.textContent=isAndroid?"Скачать APK":"Скачать EXE";
+   header.textContent=isAndroid?"Скачать APK":"Скачать EXE";
  }else{
    hero.textContent=isAndroid?"Download APK":"Download EXE";
    header.textContent=isAndroid?"Download APK":"Download EXE";
@@ -95,4 +94,3 @@ async function refreshLatestDownloads(){
 
 applyLanguage();
 refreshLatestDownloads();
-
