@@ -15,13 +15,13 @@ public class MainActivity extends BridgeActivity {
     }
 
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
         BackgroundNotificationService.setAppVisible(true);
     }
 
     @Override
-    protected void onStop() {
+    public void onStop() {
         BackgroundNotificationService.setAppVisible(false);
         super.onStop();
     }
