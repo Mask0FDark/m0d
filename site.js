@@ -43,7 +43,7 @@ document.getElementById("langSwitch").addEventListener("click",()=>{lang=lang===
 
 const downloadState={
  windows:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.6/M0D-Setup-0.2.6-x64.exe",
- android:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.9/M0D-0.2.9-android.apk"
+ android:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.10/M0D-0.2.10-android.apk"
 };
 
 function detectPlatform(){
