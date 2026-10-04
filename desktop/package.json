@@ -1,6 +1,6 @@
 {
   "name": "m0d-desktop",
-  "version": "0.2.6",
+  "version": "0.2.11",
   "private": true,
   "description": "M0D desktop client for Windows 10/11",
   "main": "main.js",

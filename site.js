@@ -42,7 +42,7 @@ function applyLanguage(){
 document.getElementById("langSwitch").addEventListener("click",()=>{lang=lang==="ru"?"en":"ru";localStorage.setItem("m0d-site-lang",lang);applyLanguage();applyDeviceRecommendation()});
 
 const downloadState={
- windows:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.6/M0D-Setup-0.2.6-x64.exe",
+ windows:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.11/M0D-Setup-0.2.11-x64.exe",
  android:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.11/M0D-0.2.11-android.apk?v=release-20261004-115626"
 };
 
