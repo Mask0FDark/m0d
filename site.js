@@ -43,7 +43,7 @@ document.getElementById("langSwitch").addEventListener("click",()=>{lang=lang===
 
 const downloadState={
  windows:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.6/M0D-Setup-0.2.6-x64.exe",
- android:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.11/M0D-0.2.11-android.apk"
+ android:"https://github.com/Mask0FDark/m0d/releases/download/v0.2.11/M0D-0.2.11-android.apk?v=release-20261004-115626"
 };
 
 function detectPlatform(){
@@ -85,7 +85,7 @@ async function refreshLatestDownloads(){
    const windows=assets.find(asset=>/^M0D-Setup-.*-x64\.exe$/i.test(asset.name));
    const android=assets.find(asset=>/^M0D-.*-android\.apk$/i.test(asset.name));
    if(windows?.browser_download_url) downloadState.windows=windows.browser_download_url;
-   if(android?.browser_download_url) downloadState.android=android.browser_download_url;
+   if(android?.browser_download_url) downloadState.android=`${android.browser_download_url}?v=${encodeURIComponent(android.updated_at||android.id||"latest")}`;
    document.querySelectorAll('[data-download-platform="windows"]').forEach(node=>node.href=downloadState.windows);
    document.querySelectorAll('[data-download-platform="android"]').forEach(node=>node.href=downloadState.android);
  }catch{}
