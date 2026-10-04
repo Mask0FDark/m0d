@@ -1,0 +1,68 @@
+name: Temporary Push Activation
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  activate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout encrypted payload
+        uses: actions/checkout@v4
+        with:
+          ref: tmp/push-activation-20261004
+
+      - name: Create ephemeral SSH identity
+        shell: bash
+        run: |
+          ssh-keygen -q -t ed25519 -N "" -f "$RUNNER_TEMP/m0d_ephemeral"
+          echo "M0D_EPHEMERAL_PUBKEY=$(cat "$RUNNER_TEMP/m0d_ephemeral.pub")"
+          ssh-keyscan -H 135.106.168.43 >> "$RUNNER_TEMP/known_hosts" 2>/dev/null
+          echo "Waiting for temporary public key authorization..."
+          sleep 120
+
+      - name: Transfer encrypted payload and activate
+        shell: bash
+        run: |
+          scp -i "$RUNNER_TEMP/m0d_ephemeral" -o UserKnownHostsFile="$RUNNER_TEMP/known_hosts" -o BatchMode=yes             .tmp/push.cms.b64 vga@135.106.168.43:/home/vga/m0d-secrets/transfer/push.cms.b64
+
+          ssh -i "$RUNNER_TEMP/m0d_ephemeral" -o UserKnownHostsFile="$RUNNER_TEMP/known_hosts" -o BatchMode=yes             vga@135.106.168.43 'bash -s' <<'REMOTE'
+          set -eu
+          T=/home/vga/m0d-secrets/transfer
+          S=/home/vga/m0d-secrets
+          base64 -d "$T/push.cms.b64" > "$T/push.cms"
+          openssl cms -decrypt -binary -inform DER             -in "$T/push.cms"             -recip "$T/transfer.crt"             -inkey "$T/transfer.key"             -out "$S/firebase-admin.json"
+          chmod 600 "$S/firebase-admin.json"
+
+          python3 - <<'PY'
+          import base64, json
+          from pathlib import Path
+          secret=Path("/home/vga/m0d-secrets/firebase-admin.json")
+          doc=json.loads(secret.read_text())
+          assert doc.get("type")=="service_account"
+          assert doc.get("project_id")=="m0d-messenger"
+          env=Path("/home/vga/m0d-dev/.env")
+          lines=env.read_text().splitlines()
+          key="FIREBASE_SERVICE_ACCOUNT_JSON_BASE64"
+          value=base64.b64encode(secret.read_bytes()).decode()
+          out=[]
+          done=False
+          for line in lines:
+              if line.startswith(key+"="):
+                  out.append(key+"="+value)
+                  done=True
+              else:
+                  out.append(line)
+          if not done:
+              out.append(key+"="+value)
+          env.write_text("\n".join(out)+"\n")
+          print("firebase_admin_ready project=m0d-messenger")
+          PY
+
+          cd /home/vga/m0d-dev
+          docker compose up -d --force-recreate app
+          sleep 5
+          docker logs --tail 80 m0d-dev-app 2>&1 | grep -E 'Firebase push enabled|Firebase push init failed|M0D server listening'
+          REMOTE
