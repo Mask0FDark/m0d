@@ -76,6 +76,14 @@ jobs:
           M0D_APP_URL: https://m0d-dev.mask-0f-darkness.ru
         run: npx cap sync android
 
+      - name: Restore Firebase client config
+        shell: bash
+        env:
+          M0D_GOOGLE_SERVICES_JSON: ${{ secrets.M0D_GOOGLE_SERVICES_JSON }}
+        run: |
+          test -n "$M0D_GOOGLE_SERVICES_JSON"
+          printf '%s' "$M0D_GOOGLE_SERVICES_JSON" > mobile/android/app/google-services.json
+
       - name: Build APK
         working-directory: mobile/android
         shell: bash
