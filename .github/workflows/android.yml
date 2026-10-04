@@ -97,6 +97,28 @@ jobs:
           VERSION="$(node -p "require('./mobile/package.json').version")"
           cp mobile/android/app/build/outputs/apk/release/app-release.apk "M0D-${VERSION}-android.apk"
 
+      - name: Verify release APK identity
+        shell: bash
+        run: |
+          VERSION="$(node -p "require('./mobile/package.json').version")"
+          APK="M0D-${VERSION}-android.apk"
+          AAPT="$ANDROID_HOME/build-tools/36.0.0/aapt"
+          APKSIGNER="$ANDROID_HOME/build-tools/36.0.0/apksigner"
+
+          BADGING="$("$AAPT" dump badging "$APK" | head -1)"
+          echo "$BADGING"
+          echo "$BADGING" | grep -F "name='site.m0d.messenger'"
+          echo "$BADGING" | grep -F "versionName='${VERSION}'"
+          if echo "$BADGING" | grep -Fq "versionName='${VERSION}-dev'"; then
+            echo "Refusing to publish a -dev APK"
+            exit 1
+          fi
+
+          CERT="$("$APKSIGNER" verify --print-certs "$APK" | sed -n 's/^Signer #1 certificate SHA-256 digest: //p' | head -1 | tr -d ':' | tr '[:upper:]' '[:lower:]')"
+          EXPECTED="2c4743d6ae143e4c3719ecd8978dc3340f249e46ae1ac54123638a14b3e73258"
+          echo "certificate_sha256=$CERT"
+          test "$CERT" = "$EXPECTED"
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
